@@ -1,5 +1,4 @@
 import java.math.BigInteger;
-import java.util.Random;
 
 public class RabinMillerTest {
 
@@ -18,17 +17,17 @@ public class RabinMillerTest {
     public boolean probablyPrime (int input){
 
         if ( input % 2 == 0 || input < 3){
-            System.out.println("Input is wrong");
+
             return false;
         }
         int b = factorOutPowersOf2(input);
         int m = (int)((input - 1) / Math.pow(2, b));
-        System.out.println(input + " = 2^" + b + " * " + m + " + 1");
+
 
         MyRandom random = new MyRandom();
         WitnessLoop:
         for(int i = k; i>0; i-- ){
-            System.out.println("i = "+ i);
+
             int a = 0;
             while (a < 2){
                 a = random.generateRandomNb() % input;
@@ -42,7 +41,7 @@ public class RabinMillerTest {
             Z = Z.remainder(INPUT);
             //long z = (long) Math.pow(a, m) % input;
 
-            System.out.println("a= " + a + ";   z = " + Z.doubleValue());
+
             if (Z.doubleValue() == 1 || Z.doubleValue() == input - 1){
                 continue;
             }
@@ -51,7 +50,6 @@ public class RabinMillerTest {
                 Z = Z.remainder(INPUT);
                 //z = (long) Math.pow(z, 2) % input;
 
-                System.out.println("j = " + j + ";   z = " + Z.doubleValue()) ;
                 if(Z.doubleValue() == input -1){
                     continue WitnessLoop;
                 }

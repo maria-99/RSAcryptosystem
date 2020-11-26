@@ -11,4 +11,22 @@ public class MyRandom {
         return newX;
     }
 
+    public int generateRandomPrimeNb(){
+        RabinMillerTest primalityTest = new RabinMillerTest();
+        int prime = generateRandomNb();
+        while (primalityTest.probablyPrime(prime)==false){
+            prime = generateRandomNb();
+        }
+        return prime;
+    }
+
+    public int generateRandomPrimeNb(int ceiling){
+        RabinMillerTest primalityTest = new RabinMillerTest();
+        int prime = generateRandomNb() % ceiling;
+        while (primalityTest.probablyPrime(prime)==false){
+            prime = generateRandomNb() % ceiling;
+        }
+        return prime;
+    }
+
 }
