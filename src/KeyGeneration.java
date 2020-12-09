@@ -1,7 +1,9 @@
 public class KeyGeneration {
 
-    private int p, q, n, CarmichaelsTotient, e, d;
-    MyRandom rand = new MyRandom();
+    private int n, e; //public keys
+    private int d; //private key
+    private int p, q, CarmichaelsTotient;
+    private MyRandom rand = new MyRandom();
 
     public KeyGeneration(){
         p = rand.generateRandomPrimeNb(500);
@@ -69,5 +71,15 @@ public class KeyGeneration {
         return t;
     }
 
+    public int getD() {
+        return d;
+    }
 
+    public int getN() {
+        return n;
+    }
+
+    public int getE() {
+        return e;
+    }
 }
